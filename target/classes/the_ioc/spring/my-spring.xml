@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="the_ioc.components" />
+
+    <bean id="b1" class="the_ioc.spring.BookServiceImpl"></bean>
+
+<!--
+    <bean id="bs1" class="the_ioc.spring.BookServiceImpl">
+        <property name="bookDAO" ref="bookDAO" />
+    </bean>
+
+    <bean id="bsn" class="the_ioc.spring.BookServiceImpl" p:bookDAO-ref="bookDAO" scope="prototype" />
+
+    <bean id="bs2" class="the_ioc.spring.BookService2Impl" />
+
+    <bean id="bookDAO" class="the_ioc.spring.BookDAO" lazy-init="true" />
+
+    <bean class="the_ioc.spring.configuration.SpringConfig" />
+
+    &lt;!&ndash;<bean id="bs2" class="the_ioc.spring.BookServiceImplImpl" />&ndash;&gt;
+
+    <bean id="bs3" class="the_ioc.spring.BookService2Impl" />
+
+    <bean class="the_ioc.components.Goal" id="goal">
+        <property name="name" value="多利" />
+        <property name="countOfLegs" value="4" />
+        <property name="aliases">
+            <ref bean="xx1" />
+            &lt;!&ndash;<list>&ndash;&gt;
+            &lt;!&ndash;<value>232323</value>&ndash;&gt;
+            &lt;!&ndash;<value>33dksdfjsdk</value>&ndash;&gt;
+            &lt;!&ndash;<value>skdfjksdj23</value>&ndash;&gt;
+            &lt;!&ndash;</list>&ndash;&gt;
+        </property>
+    </bean>
+
+    <util:list id="xx1">
+        <value>232323</value>
+        <value>33dksdfjsdk</value>
+        <value>skdfjksdj23</value>
+    </util:list>
+
+    <alias name="bookDAO" alias="bookDao" />
+    <alias name="bookDAO" alias="bookdao" />
+
+    <import resource="dierge.fxml" />
+    <import resource="disange.xml" />
+    <import resource="disange.xml" />
+    <import resource="disange.xml" />
+
+    <bean class="the_ioc.components.AnimalFactory" id="goalmiemie" factory-method="xxx" />
+    <bean class="the_ioc.components.AnimalFactory" id="deshui" factory-method="yyy" />-->
+</beans>

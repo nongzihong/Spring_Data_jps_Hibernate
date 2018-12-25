@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/cache"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd">
+
+
+    <!--启动包扫描-->
+    <context:component-scan base-package="the.aop"/>
+
+    <!--切面配置-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <!--<bean id="greetingAop" class="GreetingAop" />-->
+
+    <!--<aop:config>-->
+    <!--<aop:aspect ref="greetingAop">-->
+    <!--<aop:before method="greeting" pointcut="execution(void aop.zgrmyh.*.*(..))" />-->
+    <!--<aop:after method="bye" pointcut="execution(void aop.zgrmyh.*.*(..))" />-->
+    <!--<aop:before method="goujiao" pointcut="execution(void aop.animal.*.*(..))" />-->
+    <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
+
+    <!--事务配置-->
+    <!--配置事务管理器-->
+  <!--  <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager"/>-->
+
+    <!--启用注解-->
+    <!--<tx:annotation-driven proxy-target-class="true"/>-->
+
+
+  <!--  &lt;!&ndash;配置通知&ndash;&gt;
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get" timeout="1000" isolation="ReAD_COMMITEM" resd-only="true"/>
+            <tx:method name="save" read-only="false"/>
+        </tx:attributes>
+    </tx:advice>
+-->
+<!--
+
+    &lt;!&ndash;2.配置通知&ndash;&gt;
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="get*" timeout="1000" isolation="READ_COMMITTED" read-only="true"/>
+            <tx:method name="save*" read-only="false" />
+        </tx:attributes>
+    </tx:advice>
+
+
+
+    &lt;!&ndash;将通知切入到相应位置&ndash;&gt;
+    <aop:config>
+        <aop:advisor advice-ref="txADvice" pointcut="execution(* the.jdbc._aop.*(..))"/>
+    </aop:config>
+-->
+
+
+
+    <!--&lt;!&ndash;将通知切入到相应位置&ndash;&gt;
+       <aop:config>
+           <aop:pointcut id="dbop" expression="execution(* xxx.service.*.*(..)*)"/>
+           <aop:advisor advice-ref="txAdvice" pointcut-ref="dbop"/>
+       </aop:config>-->
+
+
+</beans>
